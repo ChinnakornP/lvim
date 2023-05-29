@@ -66,16 +66,6 @@ M.setup = function()
       event = "BufRead",
     },
     {
-      'wfxr/minimap.vim',
-      build = "cargo install --locked code-minimap",
-      -- cmd = {"Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight"},
-      config = function()
-        vim.cmd("let g:minimap_width = 10")
-        vim.cmd("let g:minimap_auto_start = 1")
-        vim.cmd("let g:minimap_auto_start_win_enter = 1")
-      end,
-    },
-    {
       "folke/trouble.nvim",
       config = function()
         require("trouble").setup {
@@ -89,6 +79,9 @@ M.setup = function()
       event = "VeryLazy",
       cmd = "Trouble",
     },
+    {
+      "fatih/vim-go"
+    }
   }
 end
 
