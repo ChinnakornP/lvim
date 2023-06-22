@@ -11,7 +11,7 @@ vim.opt.relativenumber = true
 lvim.log.level = "info"
 lvim.format_on_save = {
   enabled = true,
-  pattern = "*.lua",
+  pattern = "*",
   timeout = 1000,
 }
 -- to disable icons and use a minimalist setup, uncomment the following
@@ -74,7 +74,7 @@ lvim.builtin.treesitter.auto_install = true
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 
--- -- linters, formatters and code actions <https://www.lunarvim.org/docs/languages#lintingformatting>
+-- linters, formatters and code actions <https://www.lunarvim.org/docs/languages#lintingformatting>
 -- local formatters = require "lvim.lsp.null-ls.formatters"
 -- formatters.setup {
 --   { command = "stylua" },
