@@ -49,9 +49,9 @@ M.setup = function()
         vim.g.gruvbox_material_better_performance = 1
       end,
     },
-    {
-      'gruvbox-community/gruvbox'
-    },
+    -- {
+    --   'gruvbox-community/gruvbox'
+    -- },
     {
       "phaazon/hop.nvim",
       event = "BufRead",
@@ -94,6 +94,15 @@ M.setup = function()
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
       }
+    },
+    {
+      'akinsho/flutter-tools.nvim',
+      lazy = false,
+      dependencies = {
+        'nvim-lua/plenary.nvim',
+        'stevearc/dressing.nvim', -- optional for vim.ui.select
+      },
+      config = true,
     }
   }
 end

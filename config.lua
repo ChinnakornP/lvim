@@ -30,8 +30,9 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
 -- -- Change theme settings
--- lvim.colorscheme = "gruvbox-material"
-lvim.colorscheme = "gruvbox"
+lvim.colorscheme = "gruvbox-material"
+-- lvim.colorscheme = "gruvbox"
+-- lvim.colorscheme = "tokyonight"
 
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
@@ -41,11 +42,8 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- Automatically install missing parsers when entering buffer
 lvim.builtin.treesitter.auto_install = true
-
+lvim.builtin.treesitter.ignore_install = { "dart" }
 -- lvim.builtin.treesitter.ignore_install = { "haskell" }
-
--- -- always installed on startup, useful for parsers without a strict filetype
--- lvim.builtin.treesitter.ensure_installed = { "comment", "markdown_inline", "regex" }
 
 -- -- generic LSP settings <https://www.lunarvim.org/docs/languages#lsp-support>
 
@@ -119,3 +117,6 @@ require("user.plugins").setup()
 -- =========================================
 
 require("user.keybindings").setup()
+require("flutter-tools").setup {
+  fvm = true
+}
