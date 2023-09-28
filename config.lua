@@ -30,8 +30,8 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
 -- -- Change theme settings
-lvim.colorscheme = "gruvbox-material"
--- lvim.colorscheme = "gruvbox"
+-- lvim.colorscheme = "gruvbox-material"
+lvim.colorscheme = "gruvbox"
 -- lvim.colorscheme = "tokyonight"
 
 lvim.builtin.alpha.active = true
