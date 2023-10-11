@@ -43,16 +43,6 @@ M.setup = function()
       end
     },
     {
-      "sainnhe/gruvbox-material",
-      config = function()
-        vim.g.gruvbox_material_background = 'medium'
-        vim.g.gruvbox_material_better_performance = 1
-      end,
-    },
-    -- {
-    --   'gruvbox-community/gruvbox'
-    -- },
-    {
       "phaazon/hop.nvim",
       event = "BufRead",
       config = function()
@@ -101,27 +91,14 @@ M.setup = function()
       dependencies = {
         'nvim-lua/plenary.nvim',
         'stevearc/dressing.nvim', -- optional for vim.ui.select
+        'mfussenegger/nvim-dap'
       },
       config = true,
+      ft = "dart"
     },
     {
       'gruvbox-community/gruvbox'
     },
-    {
-      'github/copilot.vim'
-    }
-    -- {
-    --   "jackMort/ChatGPT.nvim",
-    --   event = "VeryLazy",
-    --   config = function()
-    --     require("chatgpt").setup()
-    --   end,
-    --   dependencies = {
-    --     "MunifTanjim/nui.nvim",
-    --     "nvim-lua/plenary.nvim",
-    --     "nvim-telescope/telescope.nvim"
-    --   }
-    -- }
   }
 end
 

@@ -42,13 +42,17 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- Automatically install missing parsers when entering buffer
 lvim.builtin.treesitter.auto_install = true
-lvim.builtin.treesitter.ignore_install = { "dart" }
 -- lvim.builtin.treesitter.ignore_install = { "haskell" }
 
 -- -- generic LSP settings <https://www.lunarvim.org/docs/languages#lsp-support>
 
+-- -- make sure server will always be installed even if the server is in skipped_servers list
+-- lvim.lsp.installer.setup.ensure_installed = {
+--   "sumneko_lua",
+--   "jsonls",
+-- }
 -- --- disable automatic installation of servers
--- lvim.lsp.installer.setup.automatic_installation = false
+lvim.lsp.installer.setup.automatic_installation = false
 
 -- ---configure a server manually. IMPORTANT: Requires `:LvimCacheReset` to take effect
 -- ---see the full default list `:lua =lvim.lsp.automatic_configuration.skipped_servers`
@@ -104,6 +108,12 @@ lvim.builtin.treesitter.ignore_install = { "dart" }
 -- =========================================
 require("user.plugins").setup()
 
+-- require('lspconfig').dartls.setup {}
+
+-- Flutter snippets enable
+local luasnip = require("luasnip")
+luasnip.filetype_extend("dart", { "flutter" })
+
 -- -- Autocommands (`:help autocmd`) <https://neovim.io/doc/user/autocmd.html>
 -- vim.api.nvim_create_autocmd("FileType", {
 --   pattern = "zsh",
@@ -117,6 +127,76 @@ require("user.plugins").setup()
 -- =========================================
 
 require("user.keybindings").setup()
+
+-- https://github.com/akinsho/flutter-tools.nvim
 require("flutter-tools").setup {
-  fvm = true
+  fvm = true, -- takes priority over path, uses <workspace>/.fvm/flutter_sdk if enabled
+  widget_guides = {
+    enabled = true,
+  },
+  closing_tags = {
+    highlight = "InfoMsg", -- highlight for the closing tag
+    prefix = "//",         -- character to use for close tag e.g. > Widget
+    enabled = true         -- set to false to disable
+  },
+  ui = {
+    -- the border type to use for all floating windows, the same options/formats
+    -- used for ":h nvim_open_win" e.g. "single" | "shadow" | {<table-of-eight-chars>}
+    border = "rounded",
+    -- This determines whether notifications are show with `vim.notify` or with the plugin's custom UI
+    -- please note that this option is eventually going to be deprecated and users will need to
+    -- depend on plugins like `nvim-notify` instead.
+    notification_style = "plugin",
+  },
+  decorations = {
+    statusline = {
+      -- set to true to be able use the 'flutter_tools_decorations.app_version' in your statusline
+      -- this will show the current version of the flutter app from the pubspec.yaml file
+      app_version = true,
+      -- set to true to be able use the 'flutter_tools_decorations.device' in your statusline
+      -- this will show the currently running device if an application was started with a specific
+      -- device
+      device = true,
+    },
+  },
+  outline = {
+    open_cmd = "30vnew", -- command to use to open the outline buffer
+    auto_open = false,   -- if true this will open the outline automatically when it is first populated
+  },
+  dev_log = {
+    enabled = false,
+    -- open_cmd = "tabedit", -- command to use to open the log buffer
+  },
+  dev_tools = {
+    autostart = true,         -- autostart devtools server if not detected
+    auto_open_browser = true, -- Automatically opens devtools in the browser
+  },
+  debugger = {                -- integrate with nvim dap + install dart code debugger
+    enabled = true,
+    run_via_dap = false,      -- use dap instead of a plenary job to run flutter apps
+    -- if empty dap will not stop on any exceptions, otherwise it will stop on those specified
+    -- see |:help dap.set_exception_breakpoints()| for more info
+    exception_breakpoints = {},
+    register_configurations = function(_)
+      require("dap").configurations.dart = {}
+      require("dap.ext.vscode").load_launchjs()
+    end,
+  },
+  lsp = {
+    color = { -- show the derived colours for dart variables
+      enabled = true, -- whether or not to highlight color variables at all, only supported on flutter >= 2.10
+      background = false, -- highlight the background
+      foreground = false, -- highlight the foreground
+      virtual_text = true, -- show the highlight using virtual text
+      virtual_text_str = "■", -- the virtual text character to highlight
+    },
+    settings = {
+      showTodos = true,
+      completeFunctionCalls = true,
+      renameFilesWithClasses = "prompt", -- "always"
+      enableSnippets = true,
+      enableSdkFormatter = true,
+    },
+    on_attach = require("lvim.lsp").common_on_attach,
+  },
 }
