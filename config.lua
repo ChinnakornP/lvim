@@ -160,7 +160,7 @@ require("flutter-tools").setup {
     },
   },
   outline = {
-    open_cmd = "30vnew", -- command to use to open the outline buffer
+    open_cmd = "40vnew", -- command to use to open the outline buffer
     auto_open = false,   -- if true this will open the outline automatically when it is first populated
   },
   dev_log = {

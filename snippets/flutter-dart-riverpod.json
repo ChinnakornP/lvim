@@ -1,0 +1,29 @@
+{
+  "consu": {
+    "prefix": "consu",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "import 'package:flutter_riverpod/flutter_riverpod.dart';",
+      "",
+      "class $1 extends ConsumerStatefulWidget {",
+      "",
+      "  const $1({super.key});",
+      "",
+      " @override",
+      "  ConsumerState<${1}> createState() => _${1}State();",
+      "}",
+      "class _${1}State extends ConsumerState<${1}> {",
+      "  @override",
+      "  void initState() {",
+      "    super.initState();",
+      "  }",
+      "",
+      "@override",
+      " Widget build(BuildContext context) {",
+      "return const Text('Hello');",
+      "}",
+      "}"
+    ],
+    "description": "class extends ConsumerStatefulWidget"
+  }
+}
