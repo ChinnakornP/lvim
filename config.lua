@@ -135,7 +135,8 @@ require("flutter-tools").setup {
     enabled = true,
   },
   closing_tags = {
-    highlight = "InfoMsg", -- highlight for the closing tag
+    -- see https://github.com/akinsho/flutter-tools.nvim/blob/main/lua/flutter-tools/config.lua#L105C18-L105C25
+    highlight = "Comment", -- highlight for the closing tag
     prefix = "//",         -- character to use for close tag e.g. > Widget
     enabled = true         -- set to false to disable
   },
