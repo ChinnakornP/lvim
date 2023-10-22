@@ -7,6 +7,7 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.relativenumber = true
 
+vim.g.tabby_server_url = 'http://127.0.0.1:8081'
 -- general
 lvim.log.level = "info"
 lvim.format_on_save = {

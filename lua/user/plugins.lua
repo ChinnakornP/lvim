@@ -99,6 +99,11 @@ M.setup = function()
     {
       'gruvbox-community/gruvbox'
     },
+    {
+      dir = '~/tabby/clients/vim',
+      name = "tabby",
+      enabled = true,
+    }
   }
 end
 
