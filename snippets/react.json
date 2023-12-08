@@ -1,0 +1,19 @@
+{
+  "rcomW": {
+    "prefix": "rcomW",
+    "body": [
+      "import {FC} from 'react'",
+      "interface IProps {",
+      "",
+      "}",
+      "",
+      "const $a:FC<IProps> = ({}) => {",
+      "",
+      "return <></>;",
+      "",
+      "",
+      "export defaunt $1;"
+    ],
+    "description": "const $a = () => {}"
+  }
+}

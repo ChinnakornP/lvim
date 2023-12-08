@@ -9,6 +9,10 @@
       {
         "language": "dart",
         "path": "./flutter-dart-riverpod.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./react.json"
       }
     ]
   }

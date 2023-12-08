@@ -7,7 +7,6 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.relativenumber = true
 
-vim.g.tabby_server_url = 'http://127.0.0.1:8081'
 -- general
 lvim.log.level = "info"
 lvim.format_on_save = {
@@ -202,3 +201,16 @@ require("flutter-tools").setup {
     on_attach = require("lvim.lsp").common_on_attach,
   },
 }
+
+-- Rust
+-- local rt = require("rust-tools")
+-- rt.setup({
+--   server = {
+--     on_attach = function(_, bufnr)
+--       -- Hover actions
+--       vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+--       -- Code action groups
+--       vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+--     end,
+--   },
+-- })

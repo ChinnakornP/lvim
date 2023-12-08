@@ -99,11 +99,9 @@ M.setup = function()
     {
       'gruvbox-community/gruvbox'
     },
-    {
-      dir = '~/tabby/clients/vim',
-      name = "tabby",
-      enabled = true,
-    }
+    -- {
+    --   'simrat39/rust-tools.nvim'
+    -- }
   }
 end
 
