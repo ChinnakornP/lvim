@@ -43,5 +43,24 @@
       "}"
     ],
     "description": "class $1 extends ConsumerWidget"
+  },
+  "modelFreez": {
+    "prefix": "modelFreez",
+    "body": [
+      "import 'package:freezed_annotation/freezed_annotation.dart';",
+      "",
+      "part '$1_model.freezed.dart';",
+      "part '$1_model.g.dart';",
+      "",
+      "@freezed",
+      "class $1Model with _$$1Model {",
+      "const factory $1Model({",
+      "",
+      "}) = _$1Model;",
+      "",
+      "factory $1Model.fromJson(Map<String, dynamic> json) =>",
+      "      _$$1ModelFromJson(json);",
+      "}"
+    ]
   }
 }
