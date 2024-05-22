@@ -96,12 +96,27 @@ M.setup = function()
       config = true,
       ft = "dart"
     },
+    -- {
+    --   'morhetz/gruvbox'
+    -- }
     {
       'gruvbox-community/gruvbox'
     },
     -- {
-    --   'simrat39/rust-tools.nvim'
+    --   'sainnhe/gruvbox-material'
+    -- },
+    -- TODO
+    -- {
+    --   'mrcjkb/rustaceanvim',
+    --   version = '^4', -- Recommended
+    --   ft = { 'rust' },
     -- }
+    {
+      "xiantang/darcula-dark.nvim",
+      dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+      },
+    }
   }
 end
 

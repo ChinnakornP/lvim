@@ -30,10 +30,10 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- lvim.builtin.which_key.mappings["W"] = { "<cmd>noautocmd w<cr>", "Save without formatting" }
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
--- -- Change theme settings
 -- lvim.colorscheme = "gruvbox-material"
 lvim.colorscheme = "gruvbox"
 -- lvim.colorscheme = "tokyonight"
+-- lvim.colorscheme = "darcula-dark"
 
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
@@ -82,31 +82,31 @@ lvim.lsp.installer.setup.automatic_installation = false
 -- end
 
 -- linters, formatters and code actions <https://www.lunarvim.org/docs/languages#lintingformatting>
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
---   { command = "stylua" },
---   {
---     command = "prettier",
---     extra_args = { "--print-width", "100" },
---     filetypes = { "typescript", "typescriptreact" },
---   },
--- }
--- local linters = require "lvim.lsp.null-ls.linters"
--- linters.setup {
---   { command = "flake8", filetypes = { "python" } },
---   {
---     command = "shellcheck",
---     args = { "--severity", "warning" },
---   },
---   { command = "eslint", filetypes = { "typescript", "typescriptreact" } }
--- }
--- local code_actions = require "lvim.lsp.null-ls.code_actions"
--- code_actions.setup {
---   {
---     exe = "eslint",
---     filetypes = { "typescript", "typescriptreact" },
---   },
--- }
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  { command = "stylua" },
+  {
+    command = "prettier",
+    args = { "--print-width", "80" },
+    filetypes = { "typescript", "typescriptreact" },
+  },
+}
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+  { command = "flake8", filetypes = { "python" } },
+  {
+    command = "shellcheck",
+    args = { "--severity", "warning" },
+  },
+  { command = "eslint", filetypes = { "typescript", "typescriptreact" } }
+}
+local code_actions = require "lvim.lsp.null-ls.code_actions"
+code_actions.setup {
+  {
+    exe = "eslint",
+    filetypes = { "typescript", "typescriptreact" },
+  },
+}
 
 -- -- Additional Plugins <https://www.lunarvim.org/docs/plugins#user-plugins>
 -- plugins
@@ -207,15 +207,30 @@ require("flutter-tools").setup {
   },
 }
 
--- Rust
--- local rt = require("rust-tools")
--- rt.setup({
---   server = {
---     on_attach = function(_, bufnr)
---       -- Hover actions
---       vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
---       -- Code action groups
---       vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
---     end,
---   },
--- })
+
+require('lspconfig').rust_analyzer.setup {
+  -- Other Configs ...
+  settings = {
+    ["rust-analyzer"] = {
+      -- Other Settings ...
+      procMacro = {
+        ignored = {
+          leptos_macro = {
+            -- optional: --
+            -- "component",
+            "server",
+          },
+        },
+      },
+    },
+  }
+}
+
+-- require('lspconfig').denols.setup {
+--   on_attach = on_attach,
+--   root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
+-- }
+
+require("lvim.lsp.manager").setup("tailwindcss", {
+  filetypes = { "html", "vue" }
+})
