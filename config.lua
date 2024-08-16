@@ -234,3 +234,18 @@ require('lspconfig').rust_analyzer.setup {
 require("lvim.lsp.manager").setup("tailwindcss", {
   filetypes = { "html", "vue" }
 })
+
+
+-- Autocommands (https://neovim.io/doc/user/autocmd.html)
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = { "*.json", "*.jsonc", "*.arb" },
+  -- enable wrap mode for json files only
+  command = "setlocal wrap",
+})
+-- Flutter .arb files should be concidered as json files
+vim.filetype.add {
+  extension = {
+    arb = 'json',
+  }
+}
+
