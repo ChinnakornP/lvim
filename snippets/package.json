@@ -11,7 +11,7 @@
         "path": "./flutter-dart-riverpod.json"
       },
       {
-        "language": "typescript",
+        "language": "typescriptreact",
         "path": "./react.json"
       }
     ]

@@ -96,21 +96,9 @@ M.setup = function()
       config = true,
       ft = "dart"
     },
-    -- {
-    --   'morhetz/gruvbox'
-    -- }
     {
       'gruvbox-community/gruvbox'
     },
-    -- {
-    --   'sainnhe/gruvbox-material'
-    -- },
-    -- TODO
-    -- {
-    --   'mrcjkb/rustaceanvim',
-    --   version = '^4', -- Recommended
-    --   ft = { 'rust' },
-    -- }
     {
       "xiantang/darcula-dark.nvim",
       dependencies = {
@@ -118,24 +106,29 @@ M.setup = function()
       },
     },
     {
-  "tpope/vim-fugitive",
-  cmd = {
-    "G",
-    "Git",
-    "Gdiffsplit",
-    "Gread",
-    "Gwrite",
-    "Ggrep",
-    "GMove",
-    "GDelete",
-    "GBrowse",
-    "GRemove",
-    "GRename",
-    "Glgrep",
-    "Gedit"
-  },
-  ft = {"fugitive"}
-},
+      "tpope/vim-fugitive",
+      cmd = {
+        "G",
+        "Git",
+        "Gdiffsplit",
+        "Gread",
+        "Gwrite",
+        "Ggrep",
+        "GMove",
+        "GDelete",
+        "GBrowse",
+        "GRemove",
+        "GRename",
+        "Glgrep",
+        "Gedit"
+      },
+      ft = { "fugitive" }
+    },
+    {
+      'mrcjkb/rustaceanvim',
+      version = '^5', -- Recommended
+      lazy = false,   -- This plugin is already lazy
+    }
   }
 end
 

@@ -62,6 +62,7 @@ lvim.lsp.installer.setup.automatic_installation = false
 -- ---configure a server manually. IMPORTANT: Requires `:LvimCacheReset` to take effect
 -- ---see the full default list `:lua =lvim.lsp.automatic_configuration.skipped_servers`
 -- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
 -- local opts = {} -- check the lspconfig documentation for a list of all possible options
 -- require("lvim.lsp.manager").setup("pyright", opts)
 
@@ -208,23 +209,23 @@ require("flutter-tools").setup {
 }
 
 
-require('lspconfig').rust_analyzer.setup {
-  -- Other Configs ...
-  settings = {
-    ["rust-analyzer"] = {
-      -- Other Settings ...
-      procMacro = {
-        ignored = {
-          leptos_macro = {
-            -- optional: --
-            -- "component",
-            "server",
-          },
-        },
-      },
-    },
-  }
-}
+-- require('lspconfig').rust_analyzer.setup {
+--   -- Other Configs ...
+--   settings = {
+--     ["rust-analyzer"] = {
+--       -- Other Settings ...
+--       procMacro = {
+--         ignored = {
+--           leptos_macro = {
+--             -- optional: --
+--             -- "component",
+--             "server",
+--           },
+--         },
+--       },
+--     },
+--   }
+-- }
 
 -- require('lspconfig').denols.setup {
 --   on_attach = on_attach,
@@ -248,4 +249,3 @@ vim.filetype.add {
     arb = 'json',
   }
 }
-
